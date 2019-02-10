@@ -1,0 +1,114 @@
+.nav-header {
+  position: fixed;
+  top: 0;
+  background-color: #143f8c;
+  color: #fff;
+  font-family: Roboto;
+  font-weight: 200;
+  height: 62px;
+  max-height: 62px;
+  padding: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-header-logo {
+  display: inline-block;
+  margin: 0 0 0 30px;
+  max-width: 50%;
+  padding-top: 16px;
+  z-index: 10;
+}
+
+.logo-image {
+  height: 30px;
+}
+
+.nav-header-links {
+  float: right;
+  font-family: Roboto;
+  margin-top: 23px;
+  margin-right: 10px;
+  height: 100%;
+  max-width: 50%;
+}
+
+.nav-header-links ul {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-header-links li {
+  display: inline;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.nav-header-links button {
+  display: inline;
+  position: inherit;
+  background: 0 0;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .4px;
+  margin: 0;
+  outline: 0;
+  padding-top: 0;
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.nav-header-links button:hover {
+  border-bottom: 1px solid #fff;
+}
+
+.nav-header-user {
+  float: right;
+  margin-top: 12px;
+  margin-right: 25px;
+  height: 100%;
+  max-width: 50%;
+}
+
+.nav-header-user ul {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-header-user button {
+  display: inline;
+  position: inherit;
+  background: 0 0;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: Roboto-Light;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .4px;
+  margin: 0;
+  outline: 0;
+  padding-top: 0;
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.user-image {
+  width: 40px;
+  border-radius: 50%;
+  /* border: 2px solid #ccc; */
+}
