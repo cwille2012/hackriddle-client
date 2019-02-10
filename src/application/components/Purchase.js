@@ -133,14 +133,6 @@ export class Purchase extends Component {
                     <TextInput label="Phone Number" name="phone" placeholder="Phone Number" helpText={this.state.phoneHelp} onChange={this.handleChange} autocomplete="tel" />
 
                     <div className="row col-sm-12" style={{marginTop: '20px'}}>
-                        <label htmlFor="bags" className="form-input-label">Carry-on bags?</label>
-                        <select name="bags" id="bags" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#666', fontWeight: '400'}}>
-                            <option value="0">None</option>
-                            <option value="1">One</option>
-                        </select>
-                    </div>
-
-                    <div className="row col-sm-12" style={{marginTop: '20px'}}>
                         <label htmlFor="seat" className="form-input-label">Class Preference</label>
                         <select name="class" id="class" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#666', fontWeight: '400'}}>
                             <option value="economy">No Preference</option>
@@ -172,6 +164,14 @@ export class Purchase extends Component {
                         <select name="handicap" id="handicap" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#666', fontWeight: '400'}}>
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div className="row col-sm-12" style={{marginTop: '20px'}}>
+                        <label htmlFor="bags" className="form-input-label">Carry-on bags?</label>
+                        <select name="bags" id="bags" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#666', fontWeight: '400'}}>
+                            <option value="0">None</option>
+                            <option value="1">One</option>
                         </select>
                     </div>
                     
