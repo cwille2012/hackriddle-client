@@ -101,10 +101,12 @@ export class Purchase extends Component {
 
             axios.post('http://10.33.69.132:3000/ticket', data)
             .then(res => {
-                // console.log(res.data)
-                if (res.data.ticketID !== undefined) {
+                 console.log(res.data)
                     setCookie('id', res.data.ticketID, 1);
                     window.location.reload();
+                if (res.data.ticketID !== undefined) {
+                    // setCookie('id', res.data.ticketID, 1);
+                    // window.location.reload();
                 } else {
                     alert('Purchase failure, please try again');
                 }

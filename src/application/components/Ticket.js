@@ -31,7 +31,7 @@ export class Ticket extends Component {
         axios.get('http://10.33.69.132:3000/ticket?id=' + getCookie('id'), {withCredentials: false})
         .then(res => {
             if (res.status === 200) {
-                console.log(res.data)
+                // console.log(res.data)
                 this.setState({ticket: res.data, loading: false}, function(){this.forceUpdate()});
             } else {
                 window.location.href='/logout';
@@ -42,10 +42,10 @@ export class Ticket extends Component {
     }
 
     getPass() { 
-        axios.get('http://10.33.69.132:3000/boarding?id=' + getCookie('id'), {withCredentials: false})
+        axios.get('http://10.33.69.132:3000/boardingpass?id=' + getCookie('id'), {withCredentials: false})
         .then(res => {
             if (res.status === 200) {
-                console.log(res.data)
+                // console.log(res.data)
                 this.setState({pass: res.data, loading: false}, function(){this.forceUpdate()});
             } else {
                 this.setState({pass: null, loading: false}, function(){this.forceUpdate()});
@@ -78,12 +78,22 @@ export class Ticket extends Component {
             var pass = this.state.pass;
             var passTable = null;
 
-            if (!!pass) {
+            if (pass !== null) {
+                var group = pass.groupNumber;
+
+                if (group === 'groupzero') {
+                    group = 'priority';
+                }
+
+                if (group === 'groupfirst') {
+                    group = 'first class';
+                }
+                
                 passTable = (
                     <Table>
                         <tbody>
-                            <tr><td style={leftColumnStyle}>Group</td><td style={rightColumnStyle}>{''}</td></tr>
-                            <tr><td style={leftColumnStyle}>Seat</td><td style={rightColumnStyle}>{''}</td></tr>
+                            <tr><td style={leftColumnStyle}>Group</td><td style={rightColumnStyle}>{group}</td></tr>
+                            <tr><td style={leftColumnStyle}>Seat</td><td style={rightColumnStyle}>{pass.seatNumber}</td></tr>
                             <tr><td style={leftColumnStyle}>Priority</td><td style={rightColumnStyle}>{ticket.priority}</td></tr>
                         </tbody>
                     </Table>
