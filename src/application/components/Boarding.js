@@ -34,7 +34,7 @@ export class Boarding extends Component {
 
             axios.post('http://10.33.69.132:3000/boarding', data)
             .then(res => {
-                alert('Boarding initiated')
+                alert('Boarding initiated');
             }).catch(function (error) {
                 alert('Boarding failure, please try again');
             });
@@ -50,7 +50,7 @@ export class Boarding extends Component {
 
             axios.post('http://10.33.69.132:3000/clear', data)
             .then(res => {
-                alert('Tickets cleared')
+                alert('Tickets cleared');
             }).catch(function (error) {
                 alert('Clear failure, please try again');
             });

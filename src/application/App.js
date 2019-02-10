@@ -50,7 +50,7 @@ const App = () => {
 
       </Switch>
     </BrowserRouter>
-    <Footer token={token} src='/footer-logo.png' alt='Logo Image' />
+    <Footer token={id} src='/footer-logo.png' alt='Logo Image' />
   </div>
 )};
 
