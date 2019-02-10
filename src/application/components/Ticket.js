@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import QRCode from 'react-qr-code';
 
-import { MainPlate, Table, Center, SectionHeader, SubmitButton, CancelButton, Loading } from "../library";
+import { MainPlate, Table, Center, SectionHeader, CancelButton, Loading } from "../library";
 
 //import {formatEpoch} from '../functions/formatting';
 
@@ -15,29 +15,44 @@ export class Ticket extends Component {
     
         this.state = {
             loading: true,
-            ticket: null
+            ticket: null,
+            pass: null
         }
 
         this.getProfile();
+        this.getPass();
 
         this.handleChange = this.handleChange.bind(this);
         this.getProfile = this.getProfile.bind(this);
+        this.getPass = this.getPass.bind(this);
     }
 
     getProfile() { 
         axios.get('http://10.33.69.132:3000/ticket?id=' + getCookie('id'), {withCredentials: false})
         .then(res => {
-            console.log('Status: ' + res.status)
             if (res.status === 200) {
                 console.log(res.data)
                 this.setState({ticket: res.data, loading: false}, function(){this.forceUpdate()});
             } else {
-                //this.setState({loading: false}, function(){this.forceUpdate()});
-                //alert('Ticket lookup failed!');
-                //this.setState({ticket: null, loading: false}, function(){this.forceUpdate()});
                 window.location.href='/logout';
             }
-        })
+        }).catch(function (error) {
+            window.location.href='/logout';
+        });
+    }
+
+    getPass() { 
+        axios.get('http://10.33.69.132:3000/boarding?id=' + getCookie('id'), {withCredentials: false})
+        .then(res => {
+            if (res.status === 200) {
+                console.log(res.data)
+                this.setState({pass: res.data, loading: false}, function(){this.forceUpdate()});
+            } else {
+                this.setState({pass: null, loading: false}, function(){this.forceUpdate()});
+            }
+        }).catch((error) => {
+            this.setState({pass: null, loading: false}, function(){this.forceUpdate()});
+        });
     }
 
     handleChange(event) {
@@ -59,12 +74,38 @@ export class Ticket extends Component {
             var leftColumnStyle = {width: '35%'};
             var rightColumnStyle = {maxWidth: '300px'};
             var ticket = this.state.ticket;
+
+            var pass = this.state.pass;
+            var passTable = null;
+
+            if (!!pass) {
+                passTable = (
+                    <Table>
+                        <tbody>
+                            <tr><td style={leftColumnStyle}>Group</td><td style={rightColumnStyle}>{''}</td></tr>
+                            <tr><td style={leftColumnStyle}>Seat</td><td style={rightColumnStyle}>{''}</td></tr>
+                            <tr><td style={leftColumnStyle}>Priority</td><td style={rightColumnStyle}>{ticket.priority}</td></tr>
+                        </tbody>
+                    </Table>
+                )
+            } else {
+                passTable = (
+                    <Center>
+                        Boarding information will be available closer to boarding time.
+                    </Center>
+                )
+            }
+
             return (
                 <MainPlate title="My Ticket" subTitle="My Boarding Information">
                     <SectionHeader>Boarding Pass</SectionHeader>
                     <Center>
                         <QRCode value={String(ticket.id)} />
                     </Center>
+
+                    <SectionHeader>Boarding Information</SectionHeader>
+                    {passTable}
+
 
                     <SectionHeader>Personal Information</SectionHeader>
 
@@ -76,6 +117,7 @@ export class Ticket extends Component {
                             <tr><td style={leftColumnStyle}>Bags</td><td style={rightColumnStyle}>{ticket.bags}</td></tr>
                             <tr><td style={leftColumnStyle}>Class</td><td style={rightColumnStyle}>{ticket.class}</td></tr>
                             <tr><td style={leftColumnStyle}>Seat</td><td style={rightColumnStyle}>{ticket.seat}</td></tr>
+                            <tr><td style={leftColumnStyle}>Priority</td><td style={rightColumnStyle}>{ticket.priority}</td></tr>
                         </tbody>
                     </Table>
 

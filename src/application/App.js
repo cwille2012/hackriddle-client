@@ -6,6 +6,8 @@ import { Header, Footer } from "./library";
 import {Purchase} from './components/Purchase';
 import {Ticket} from './components/Ticket';
 import {Lookup} from './components/Lookup';
+import {Boarding} from './components/Boarding';
+import {About} from './components/About';
 import {NotFound} from './components/NotFound';
 
 import {getCookie, eraseCookie} from './functions/cookies';
@@ -28,6 +30,14 @@ const App = () => {
 
         <Route exact path="/lookup" render={(props) => {
           return(<Lookup {...props} />)
+        }}/>
+
+        <Route exact path="/boarding" render={(props) => {
+          return(<Boarding {...props} />)
+        }}/>
+
+        <Route exact path="/about" render={(props) => {
+          return(<About {...props} />)
         }}/>
 
         <Route exact path="/logout" render={(props) => {

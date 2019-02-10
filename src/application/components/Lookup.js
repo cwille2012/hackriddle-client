@@ -58,7 +58,10 @@ export class Lookup extends Component {
                     alert('Ticket lookup failed!');
                     window.location.href='/logout';
                 }
-            })
+            }).catch(function (error) {
+                    alert('Ticket lookup failed!');
+                    window.location.href='/logout';
+              });
         }
     }
 

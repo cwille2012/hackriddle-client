@@ -107,18 +107,18 @@ export class Purchase extends Component {
                 "priority": priority
             }
 
-            console.log(data)
-
             axios.post('http://10.33.69.132:3000/ticket', data)
             .then(res => {
-                console.log(res.data)
-                if (!!res.data.ticketID) {
+                // console.log(res.data)
+                if (res.data.ticketID !== undefined) {
                     setCookie('id', res.data.ticketID, 1);
                     window.location.reload();
                 } else {
                     alert('Purchase failure, please try again');
                 }
-            })
+            }).catch(function (error) {
+                alert('Purchase failure, please try again');
+            });
         }
     }
 
@@ -153,7 +153,7 @@ export class Purchase extends Component {
                     <div className="row col-sm-12" style={{marginTop: '20px'}}>
                         <label htmlFor="seat" className="form-input-label">Seat Preference</label>
                         <select name="seat" id="seat" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#999', fontWeight: '300'}}>
-                            <option value="none">No Preference</option>
+                            <option value="middle">No Preference</option>
                             <option value="window">Window</option>
                             <option value="middle">Middle</option>
                             <option value="aisle">Aisle</option>
