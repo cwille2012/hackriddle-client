@@ -13,11 +13,9 @@ export class Purchase extends Component {
             firstname: '',
             lastname: '',
             phone: '',
-            bags: '',
             firstnameHelp: '',
             lastnameHelp: '',
-            phoneHelp: '',
-            bagsHelp: ''
+            phoneHelp: ''
         }
 
         if (!!props.location) {
@@ -61,20 +59,14 @@ export class Purchase extends Component {
                 function(){this.forceUpdate()});
         }
 
-        if (this.state.bags === '0' || this.state.bags === '1') {
-            this.setState({bagsHelp: ''},
-                function(){this.forceUpdate()});
-        } else {
-            inputsValid = false;
-            this.setState({bagsHelp: 'Please enter either 0 or 1'},
-                function(){this.forceUpdate()});
-        }
-
         return inputsValid
     }
 
     purchase() {
         if (this.validateInputs() !== false) {
+
+            var bagsDropdown = document.getElementById("bags");
+            var bags = bagsDropdown.options[bagsDropdown.selectedIndex].value;
 
             var seatDropdown = document.getElementById("seat");
             var seat = seatDropdown.options[seatDropdown.selectedIndex].value;
@@ -101,7 +93,7 @@ export class Purchase extends Component {
                 "firstname": this.state.firstname,
                 "lastname": this.state.lastname,
                 "phone": this.state.phone,
-                "bags": this.state.bags,
+                "bags": bags,
                 "seat": seat,
                 "class": classValue,
                 "priority": priority
@@ -139,7 +131,14 @@ export class Purchase extends Component {
                     <TextInput label="First Name" name="firstname" placeholder="First Name" helpText={this.state.firstnameHelp} autocomplete="given-name" onChange={this.handleChange} />
                     <TextInput label="Last Name" name="lastname" placeholder="Last Name" helpText={this.state.lastnameHelp} autocomplete="family-name" onChange={this.handleChange} />
                     <TextInput label="Phone Number" name="phone" placeholder="Phone Number" helpText={this.state.phoneHelp} onChange={this.handleChange} autocomplete="tel" />
-                    <TextInput label="Carry-on Bags" name="bags" placeholder="Number of Bags" helpText={this.state.bagsHelp} onChange={this.handleChange} />
+
+                    <div className="row col-sm-12" style={{marginTop: '20px'}}>
+                        <label htmlFor="bags" className="form-input-label">Carry-on bags?</label>
+                        <select name="bags" id="bags" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#999', fontWeight: '300'}}>
+                            <option value="0">None</option>
+                            <option value="1">One</option>
+                        </select>
+                    </div>
 
                     <div className="row col-sm-12" style={{marginTop: '20px'}}>
                         <label htmlFor="seat" className="form-input-label">Class Preference</label>
