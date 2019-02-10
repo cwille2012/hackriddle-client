@@ -10,7 +10,7 @@ const Header = ({
   id
 }) => {
   if (token === null) {
-    console.log('Header: not logged in');
+    //console.log('Header: not logged in');
     return (
       <div className="nav-header">
         <div className="nav-header-logo">
@@ -26,8 +26,8 @@ const Header = ({
       </div>
     )
   } else {
-    console.log('Header-id: ' + id);
-    console.log('Header-token: ' + token);
+    //console.log('Header-id: ' + id);
+    //console.log('Header-token: ' + token);
     var userImage = "/" + id + ".png";
     return (
       <div className="nav-header">
