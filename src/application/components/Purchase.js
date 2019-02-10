@@ -134,7 +134,7 @@ export class Purchase extends Component {
 
                     <div className="row col-sm-12" style={{marginTop: '20px'}}>
                         <label htmlFor="bags" className="form-input-label">Carry-on bags?</label>
-                        <select name="bags" id="bags" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#999', fontWeight: '300'}}>
+                        <select name="bags" id="bags" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#666', fontWeight: '400'}}>
                             <option value="0">None</option>
                             <option value="1">One</option>
                         </select>
@@ -142,7 +142,7 @@ export class Purchase extends Component {
 
                     <div className="row col-sm-12" style={{marginTop: '20px'}}>
                         <label htmlFor="seat" className="form-input-label">Class Preference</label>
-                        <select name="class" id="class" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#999', fontWeight: '300'}}>
+                        <select name="class" id="class" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#666', fontWeight: '400'}}>
                             <option value="economy">No Preference</option>
                             <option value="economy">Economy</option>
                             <option value="first">First</option>
@@ -151,7 +151,7 @@ export class Purchase extends Component {
 
                     <div className="row col-sm-12" style={{marginTop: '20px'}}>
                         <label htmlFor="seat" className="form-input-label">Seat Preference</label>
-                        <select name="seat" id="seat" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#999', fontWeight: '300'}}>
+                        <select name="seat" id="seat" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#666', fontWeight: '400'}}>
                             <option value="middle">No Preference</option>
                             <option value="window">Window</option>
                             <option value="middle">Middle</option>
@@ -161,7 +161,7 @@ export class Purchase extends Component {
 
                     <div className="row col-sm-12" style={{marginTop: '20px'}}>
                         <label htmlFor="child" className="form-input-label">Traveling with child under 3?</label>
-                        <select name="child" id="child" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#999', fontWeight: '300'}}>
+                        <select name="child" id="child" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#666', fontWeight: '400'}}>
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>
@@ -169,7 +169,7 @@ export class Purchase extends Component {
 
                     <div className="row col-sm-12" style={{marginTop: '20px'}}>
                         <label htmlFor="handicap" className="form-input-label">Need handicap assistance?</label>
-                        <select name="handicap" id="handicap" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#999', fontWeight: '300'}}>
+                        <select name="handicap" id="handicap" style={{width: '100%', height: '45px', background: 'white', fontSize: '16px', border: '1px solid #dddddd', color: '#666', fontWeight: '400'}}>
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-import { MainPlate, TextInput, Center, SubmitButton, CancelButton } from "../library";
+import { MainPlate, Center, SubmitButton, CancelButton } from "../library";
 
 
 export class Boarding extends Component {
