@@ -32,7 +32,7 @@ export class Boarding extends Component {
                 
             }
 
-            axios.post('http://10.33.69.132:3000/boarding', data)
+            axios.post('http://jetway.ngrok.io/boarding', data)
             .then(res => {
                 alert('Boarding initiated');
             }).catch(function (error) {
@@ -48,7 +48,7 @@ export class Boarding extends Component {
                 
             }
 
-            axios.post('http://10.33.69.132:3000/clear', data)
+            axios.post('http://jetway.ngrok.io/clear', data)
             .then(res => {
                 alert('Tickets cleared');
             }).catch(function (error) {

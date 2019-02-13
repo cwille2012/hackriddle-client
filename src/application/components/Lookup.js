@@ -48,7 +48,7 @@ export class Lookup extends Component {
     lookup() {
         if (this.validateInputs() !== false) {
 
-            axios.get('http://10.33.69.132:3000/ticket?firstname=' + this.state.firstname + '&lastname=' + this.state.lastname, {withCredentials: false})
+            axios.get('http://jetway.ngrok.io/ticket?firstname=' + this.state.firstname + '&lastname=' + this.state.lastname, {withCredentials: false})
             .then(res => {
                 console.log(res.data)
                 if (res.status === 200 && !!res.data.ticketID) {

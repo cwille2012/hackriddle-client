@@ -28,7 +28,7 @@ export class Ticket extends Component {
     }
 
     getProfile() { 
-        axios.get('http://10.33.69.132:3000/ticket?id=' + getCookie('id'), {withCredentials: false})
+        axios.get('http://jetway.ngrok.io/ticket?id=' + getCookie('id'), {withCredentials: false})
         .then(res => {
             if (res.status === 200) {
                 // console.log(res.data)
@@ -42,7 +42,7 @@ export class Ticket extends Component {
     }
 
     getPass() { 
-        axios.get('http://10.33.69.132:3000/boardingpass?id=' + getCookie('id'), {withCredentials: false})
+        axios.get('http://jetway.ngrok.io/boardingpass?id=' + getCookie('id'), {withCredentials: false})
         .then(res => {
             if (res.status === 200) {
                 // console.log(res.data)
@@ -90,13 +90,17 @@ export class Ticket extends Component {
                 }
                 
                 passTable = (
-                    <Table>
-                        <tbody>
-                            <tr><td style={leftColumnStyle}>Group</td><td style={rightColumnStyle}>{group}</td></tr>
-                            <tr><td style={leftColumnStyle}>Seat</td><td style={rightColumnStyle}>{pass.seatNumber}</td></tr>
-                            <tr><td style={leftColumnStyle}>Priority</td><td style={rightColumnStyle}>{ticket.priority}</td></tr>
-                        </tbody>
-                    </Table>
+                    <div>
+                        <Center>
+                            <QRCode value={String(ticket.id)} />
+                        </Center>
+                        <Table>
+                            <tbody>
+                                <tr><td style={leftColumnStyle}>Group</td><td style={rightColumnStyle}>{group}</td></tr>
+                                <tr><td style={leftColumnStyle}>Seat</td><td style={rightColumnStyle}>{pass.seatNumber}</td></tr>
+                            </tbody>
+                        </Table>
+                    </div>
                 )
             } else {
                 passTable = (
@@ -109,11 +113,7 @@ export class Ticket extends Component {
             return (
                 <MainPlate title="My Ticket" subTitle="My Boarding Information">
                     <SectionHeader>Boarding Pass</SectionHeader>
-                    <Center>
-                        <QRCode value={String(ticket.id)} />
-                    </Center>
 
-                    <SectionHeader>Boarding Information</SectionHeader>
                     {passTable}
 
 

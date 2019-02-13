@@ -99,7 +99,7 @@ export class Purchase extends Component {
                 "priority": priority
             }
 
-            axios.post('http://10.33.69.132:3000/ticket', data)
+            axios.post('http://jetway.ngrok.io/ticket', data)
             .then(res => {
                  console.log(res.data)
                     setCookie('id', res.data.ticketID, 1);
